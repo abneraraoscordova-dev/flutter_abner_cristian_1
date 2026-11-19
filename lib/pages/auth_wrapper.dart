@@ -17,7 +17,7 @@ class AuthWrapper extends StatelessWidget{
             body: Center(child: CircularProgressIndicator()),
           );
         }
-        // Si hay un usuario conectado, lo manda al Home
+        
         if (snapshot.hasData) {
           return const HomePage();
         }

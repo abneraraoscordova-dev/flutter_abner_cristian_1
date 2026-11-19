@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_abner_cristian_1/app_colors.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class LoginPage extends StatefulWidget {
@@ -15,13 +16,14 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF6F2FF),
+      backgroundColor: AppColors.cfondo,
       appBar: AppBar(
-        backgroundColor: Color(0xFF5E17EB),
+        backgroundColor: AppColors.cappbar,
         title: Row(
           children: [
-            Icon(Icons.person, size: 15, color: Colors.white,),
-            Text('Inciar Sesión', style: TextStyle(fontWeight: FontWeight.bold,),),
+            Icon(Icons.person, size: 30, color: Colors.white, ),
+            Text('     '),
+            Text('Inciar Sesión', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),),
           ],
         )
       ),
@@ -33,10 +35,10 @@ class _LoginPageState extends State<LoginPage> {
           children: [
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xFF8C52FF),
-                  foregroundColor: Color(0xFFB892FF),
+                  backgroundColor: AppColors.cbotones,
+                  foregroundColor: AppColors.cbordes,
                 ),
-                child: Text('Iniciar Sesión con Google'),
+                child: Text('Iniciar Sesión con Google', ),
                 onPressed: () async{
                   try{
                     final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
