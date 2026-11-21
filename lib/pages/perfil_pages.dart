@@ -46,9 +46,6 @@ class PerfilPagesState extends State<PerfilPages> {
     }
   }
 
-
-
-
    @override
   void initState() {
     
@@ -83,7 +80,7 @@ class PerfilPagesState extends State<PerfilPages> {
     nombreCtrl.dispose();
     descripcionCtrl.dispose();
     lugarCtrl.dispose();
-    super.dispose();
+    super.dispose();     
   }
 
   Widget build(BuildContext context) {
@@ -235,7 +232,7 @@ class PerfilPagesState extends State<PerfilPages> {
                      foto: fotoBase64 ?? '',
                      );
 
-                    //el usuario se sale
+                    //si se sale
                     if(!context.mounted){
                       return;
                     }

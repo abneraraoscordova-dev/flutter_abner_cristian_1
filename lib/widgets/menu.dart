@@ -1,6 +1,7 @@
 // import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_abner_cristian_1/app_colors.dart';
+import 'package:flutter_abner_cristian_1/pages/misPublicaciones_page.dart';
 import '../pages/perfil_pages.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import '../pages/objetos_pages.dart';
@@ -28,11 +29,11 @@ class _MenuState extends State<Menu> {
     'Mis Objetos',
 
   ];
-    // aqui iran las pantallas centrales que mostraran los datos, de momento soo son texto
+
   final List <Widget> paginas = [
     const PerfilPages(),
     const ObjetosPages(),
-    const Text('Esta es la pestaña de Mis Objetos'),
+    const MispublicacionesPage(),
     
   ];
 

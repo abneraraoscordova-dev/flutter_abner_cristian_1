@@ -11,16 +11,32 @@ class FirestoreService {
         .snapshots();
   }
 
+  Future<void> cambiarEstado(String id, String nuevoEstado) async {
+  await base.collection('publicaciones').doc(id).update({
+    'estado': nuevoEstado,
+  });
+  }
+
   Future<List<String>> obtenerCategorias() async {
     try{
       QuerySnapshot snapshot = await base.collection('categorias').get();
-      // Transforma los documentos de Firebase en una lista simple de Strings
+    
       return snapshot.docs.map((doc) => doc['nombre'].toString()).toList();
 
     }catch(e){
       print("Error al intentar obtener categorias $e");
       return [];
     }
+  }
+
+  Stream<QuerySnapshot> misPublicaciones(){
+    final User? usuario  = FirebaseAuth.instance.currentUser;
+    final String correo = usuario?.email ?? '';
+    return base
+    .collection('publicaciones')
+    .where('autorCorreo', isEqualTo: correo)
+    .snapshots();
+
   }
 
   //publicar
@@ -54,7 +70,7 @@ class FirestoreService {
       erroresValidacion['foto'] = ['Debe agregar una foto del objeto.'];
     }
 
-    // Si encontramos campos vacíos, frenamos todo y devolvemos los errores a la pantala
+   
     if (erroresValidacion.isNotEmpty) {
       return {'errors': erroresValidacion};
     }

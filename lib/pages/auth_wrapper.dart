@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'login_page.dart';
 import 'principal.dart';
 
-//Este archivo escucha al firebase y elige si mandar al susuaroio al home o al login
+
 
 class AuthWrapper extends StatelessWidget{
   const AuthWrapper({super.key});
@@ -29,7 +29,7 @@ class AuthWrapper extends StatelessWidget{
               ),
             );
         }
-        // Si no hay nadie conectado, lo manda al Login
+        // Si no hay nadie conectado lo manda al Login
         return const LoginPage();
 
     }
