@@ -35,7 +35,7 @@ class _ObjetosPagesState extends State<ObjetosPages> {
                 separatorBuilder: (context, index) => const Divider(height: 1),
 
                 itemBuilder: (context, index){
-                  final data = docs[index].data() as Map<String, dynamic>;  //estudiar
+                  final data = docs[index].data() as Map<String, dynamic>;  
 
                   final String titulo = data['titulo'] ?? 'sin título';
                   final String tipo = data['tipo'] ?? 'sin tipo';

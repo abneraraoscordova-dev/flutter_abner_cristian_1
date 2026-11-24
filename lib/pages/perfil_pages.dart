@@ -27,7 +27,7 @@ class PerfilPagesState extends State<PerfilPages> {
   bool cargandoCategorias = true;
 
 
-  String? fotoBase64;
+  String? fotoSubida;
 
   Future<void> seleccionarFoto(ImageSource origen) async {
     final ImagePicker picker = ImagePicker();
@@ -41,7 +41,7 @@ class PerfilPagesState extends State<PerfilPages> {
     if (imagen != null) {
       final bytes = await imagen.readAsBytes();
       setState(() {
-        fotoBase64 = base64Encode(bytes);
+        fotoSubida = base64Encode(bytes);
       });
     }
   }
@@ -70,7 +70,7 @@ class PerfilPagesState extends State<PerfilPages> {
       tipoSelec= null;
       categoriaSelec = null;
 
-      fotoBase64 = null;
+      fotoSubida = null;
       errores = {};
     });
   }
@@ -186,10 +186,10 @@ class PerfilPagesState extends State<PerfilPages> {
               ],
             ),
 
-            if (fotoBase64 != null) ...[
+            if (fotoSubida != null) ...[
               SizedBox(height: 10),
               Image.memory(
-                base64Decode(fotoBase64!),
+                base64Decode(fotoSubida!),
                 height: 150,
                 fit: BoxFit.cover,
               ),
@@ -229,7 +229,7 @@ class PerfilPagesState extends State<PerfilPages> {
                      tipo: tipoSelec ?? '', 
                      categoria: categoriaSelec ?? '', 
                      lugar: lugarCtrl.text.trim(),
-                     foto: fotoBase64 ?? '',
+                     foto: fotoSubida ?? '',
                      );
 
                     //si se sale

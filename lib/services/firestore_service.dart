@@ -39,7 +39,7 @@ class FirestoreService {
 
   }
 
-  //publicar
+ 
   Future<Map<String, dynamic>> publicar({
     required String titulo,
     required String descripcion,

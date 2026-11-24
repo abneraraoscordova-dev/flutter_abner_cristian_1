@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_abner_cristian_1/app_colors.dart';
 import 'package:flutter_abner_cristian_1/pages/misPublicaciones_page.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import '../pages/perfil_pages.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import '../pages/objetos_pages.dart';
@@ -49,7 +50,12 @@ class _MenuState extends State<Menu> {
          icon: const Icon(Icons.logout),
          color: Colors.white,
          iconSize: 30,
-        onPressed: () async => await FirebaseAuth.instance.signOut(),
+        onPressed: () async {
+        await GoogleSignIn().signOut();
+        await FirebaseAuth.instance.signOut();
+        
+        
+        }
        
         ),
       ],

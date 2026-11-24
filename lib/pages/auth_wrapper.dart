@@ -29,15 +29,12 @@ class AuthWrapper extends StatelessWidget{
               ),
             );
         }
-        // Si no hay nadie conectado lo manda al Login
+        
         return const LoginPage();
 
     }
 
    );
   }
-
-
-
 
 }
